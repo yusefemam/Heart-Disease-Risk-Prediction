@@ -30,7 +30,7 @@ def generate_heart_disease_data(num_samples=1000):
 def extract_bert_embeddings(descriptions):
     inputs = tokenizer(descriptions, return_tensors='tf', padding=True, truncation=True, max_length=128)
     outputs = bert_model(inputs)
-    embeddings = outputs.last_hidden_state[:, 0, :]  # Use the [CLS] token representation
+    embeddings = outputs.last_hidden_state[:, 0, :]  
     return embeddings.numpy()
 
 X, y, descriptions = generate_heart_disease_data()
